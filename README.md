@@ -10,15 +10,15 @@ pip install paho-mqtt requests python-dotenv pytz pillow
 ```
 3. Add a .env file in the root project directory, containing the following credentials. If you don't have any credentials, feel free [to contact us](https://jusdeliens.com/contact) to join the adventure 🚀
 ```.env
-# The name of your player or your robot ID
+# The name of your player or your robot ID as str
 ROBOTID         = ...
-# The name of the arena to join
+# The name of the arena to join as str
 ARENA           = ...
-# The broker user name provided by a Jusdeliens administrator
+# The broker user name provided by a Jusdeliens administrator as str
 USERNAME        = ...
 # The broker user password as str
 PASSWORD        = ...
-# The broker ip address or dns
+# The broker ip address or dns as str
 BROKERADDRESS   = ...
 # The border port as int 
 BROKERPORT      = ...
@@ -43,6 +43,6 @@ You can also get yourself a real Ova bot to have much more fun and join the next
 Designed with 💖 by [Jusdeliens Inc.](https://jusdeliens.com)
 
 ## ⚖️ License
-Under CC BY-NC-ND 3.0 licence 
-👉 https://creativecommons.org/licenses/by-nc-nd/3.0/ 
+Under CC BY-NC 4.0 licence 
+👉 https://creativecommons.org/licenses/by-nc/4.0/deed.en
 
