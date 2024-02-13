@@ -33,7 +33,7 @@ import traceback
 import threading
 import io
 import json
-from paho.mqtt.client import Client, CallbackAPIVersion
+import paho.mqtt.client as mqtt
 from datetime import datetime
 from PIL import Image
 from typing import Any, Callable
@@ -941,7 +941,7 @@ class OvaClientMqtt(IRobot):
 		self.__topicPlayerRequest : str = ""
 		self.__topicRobotRequest : str = ""
 		self.__topicsToSubcribe = []
-		self.__client: Client or None = None
+		self.__client: mqtt.Client or None = None
 		self.__useClientThreadLoop:bool = True
 		self.__clientThreadLoop:threading.Thread or None = None
 		self.__changeRobot(robotId, autoconnect)
@@ -1180,9 +1180,9 @@ class OvaClientMqtt(IRobot):
 		self.__topicsToSubcribe = [self.__topicImgStream, self.__topicRobotState, self.__topicPlayerState, self.__topicArenaState]
 		self.__client = None
 		try:
-			self.__client = Client(callback_api_version=CallbackAPIVersion.VERSION1, client_id = self.__id, userdata=self)
+			self.__client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION1, client_id = self.__id, userdata=self)
 		except Exception as e:
-			self.__client = Client(client_id = self.__id, userdata=self)
+			self.__client = mqtt.Client(client_id = self.__id, userdata=self)
 		self.__client.on_message = OvaClientMqtt.__onMessage
 		self.__client.on_connect = OvaClientMqtt.__onConnect
 		self.__client.on_disconnect = OvaClientMqtt.__onDisconnect
