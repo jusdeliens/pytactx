@@ -6,7 +6,7 @@ Learn Python by playing with an Ova bot in a virtual Arena ⚔️
 1. Clone this repo
 2. pip install all deps in [the requirement list](requirements.txt)
 ```
-pip install paho-mqtt requests python-dotenv pytz pillow
+pip install --no-cache-dir -r requirements.txt
 ```
 3. Add a .env file in the root project directory, containing the following credentials. If you don't have any credentials, feel free [to contact us](https://jusdeliens.com/contact) to join the adventure 🚀
 ```.env
