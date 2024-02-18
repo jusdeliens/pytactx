@@ -20,9 +20,9 @@ USERNAME        = ...
 PASSWORD        = ...
 # The broker ip address or dns as str
 BROKERADDRESS   = ...
-# The border port as int 
+# The broker port as int 
 BROKERPORT      = ...
-# Verbosity level as int from 0:no log, to 4: full debug logs)
+# Verbosity level as int from 0:no log, to 4: full debug logs
 VERBOSITY       = ... 
 ```
 
@@ -31,11 +31,11 @@ VERBOSITY       = ...
 python main.py
 ```
 
-## 🤔 How to play ?
+## 🎮 How to play ?
 
 Fetch all instructions to program your robot 👉 [on our tutorial here](https://tutos.jusdeliens.com/index.php/2020/01/14/pytactx-prise-en-main/)
 
-To see the public arenas in your web browser 🎮, go to the 👉 [Online IDEAL Arena Viewer](https://play.jusdeliens.com/)
+To see the public arenas in your web browser, go to the 👉 [Online IDEAL Arena Viewer](https://play.jusdeliens.com/)
 
 You can also get yourself a real Ova bot to have much more fun and join the next robot challenge with passionate developers all around the world [by clicking here](https://jusdeliens.com/ova).
 

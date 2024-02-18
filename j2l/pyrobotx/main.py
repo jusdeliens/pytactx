@@ -4,7 +4,7 @@ import random
 import time
 
 # "ovaXXXXXXXXXXXX" A REMPLACER PAR UNE STR CONTENANT L'IDENTIFIANT DE VOTRE OVA
-robot:IRobot = OvaClientMqtt(robotId="ova1097bdcc944d", server="mqtt.jusdeliens.com", port=1883, useProxy=False)
+robot:IRobot = OvaClientMqtt(robotId="ovaXXXXXXXXXXXX", server="mqtt.jusdeliens.com", port=1883, useProxy=False)
 #robot:IRobot = OvaClientHttpV2(url="192.168.71.1", verbosity=3)
 
 def onRobotEvent(source, event, value):
