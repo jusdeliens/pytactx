@@ -4,11 +4,15 @@ Learn Python by playing with an Ova bot in a virtual Arena ⚔️
 ## ⚙️ Setup
 
 1. Clone this repo
-2. pip install all deps in [the requirement list](requirements.txt)
+2. Update all submodules recursively
+```
+git submodule update --init --recursive
+```
+3. pip install all deps in [the requirement list](requirements.txt)
 ```
 pip install --no-cache-dir -r requirements.txt
 ```
-3. Add a .env file in the root project directory, containing the following credentials. If you don't have any credentials, feel free [to contact us](https://jusdeliens.com/contact) to join the adventure 🚀
+4. Add a .env file in the root project directory, containing the following credentials. If you don't have any credentials, feel free [to contact us](https://jusdeliens.com/contact) to join the adventure 🚀
 ```.env
 # The name of your player or your robot ID as str
 ROBOTID         = ...
@@ -26,7 +30,7 @@ BROKERPORT      = ...
 VERBOSITY       = ... 
 ```
 
-4. Then run the main.py with python interpretor (⚠️ at least version 3.9)
+5. Then run the main.py with python interpretor (⚠️ at least version 3.9)
 ```
 python main.py
 ```

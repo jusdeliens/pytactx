@@ -10,7 +10,6 @@
 # Designed with 💖 by Jusdeliens
 # Under CC BY-NC-ND 3.0 licence 
 # https://creativecommons.org/licenses/by-nc-nd/3.0/ 
-__version__ = '1.0.0'
 
 # Allow import without error 
 # "relative import with no known parent package"
@@ -19,11 +18,11 @@ __version__ = '1.0.0'
 import os
 import sys
 __workdir__ = os.path.dirname(os.path.abspath(__file__))
-__libdir__ = os.path.dirname(__workdir__)
-sys.path.append(__libdir__)
+sys.path.append(__workdir__)
 
 import pyrobotx.client as rbx
 import pyanalytx.logger as anx
+from pyanalytx.sources import fetchSources
 from typing import Any, Callable
 import copy
 import traceback
@@ -378,57 +377,6 @@ class IAgent:
         """To be overidden"""
         ...
 
-def exploreSourcesDirs(rootpath, subdirs=[], takeOnlyExts=['.py','.json'], dontTakeExts=[], dontTakeFolders=["venv", "j2l"], takeHidden=False, recursive=True, explored={}):
-    dirpath = os.path.join(rootpath, *subdirs)
-    filenames = os.listdir(dirpath)
-    for filefullname in filenames:
-        filefullpath = os.path.join(dirpath, filefullname)
-        filename, fileext = os.path.splitext(filefullname)
-        if ( fileext in dontTakeExts ):
-            continue # Not blacklist exts
-        if ( len(fileext) > 0 and len(takeOnlyExts) > 0 and fileext not in takeOnlyExts ):
-            continue # Only whitelist exts
-        if ( recursive == False and len(fileext) == 0 ):
-            continue # Recursive folder
-        if ( len(filename) >= 2 and filename[0] == "." and filename[1] != "." and takeHidden == False):
-            continue # No hidden folder
-        if ( filename in dontTakeFolders and len(fileext) == 0 ):
-            continue # No env folder
-        if ( len(filename) >= 2 and filename[0] == "_" and filename[1] == "_" and takeHidden == False):
-            continue # No hidden folder
-        if ( len(fileext) == 0 ): # Recursive folder explore
-            subdirsRecursive = subdirs.copy()
-            subdirsRecursive.append(filefullname)
-            exploreSourcesDirs(rootpath, subdirsRecursive, takeOnlyExts, dontTakeExts, dontTakeFolders, takeHidden, recursive, explored)
-        else:
-            with open(filefullpath, "r", encoding="utf-8") as src:
-                explored[filefullpath.replace(rootpath, "")] = (
-                    subdirs,
-                    filename, fileext, 
-                    os.path.getctime(filefullpath), 
-                    os.path.getmtime(filefullpath), 
-                    (base64.b64encode(src.read().encode('utf-8'))).decode('utf-8')
-                )
-    return explored
-
-def fetchSources(dirpath=None):
-    if ( dirpath == None ):
-        dirpath = __workdir__
-    # Find main.py
-    depth, maxdepth = 0,3
-    while depth < maxdepth:
-        filenames = os.listdir(dirpath)
-        if ( "main.py" in filenames ):
-            break
-        depth += 1
-        dirpath = os.path.join(dirpath, "..")
-    if ( depth == maxdepth ):
-        anx.debug("main.py not found")
-        return None
-    anx.debug("Found main.py from agent.py at depth "+str(-depth))
-    # Explorer all folders from main.py
-    srcs = exploreSourcesDirs(dirpath)
-    return srcs
 
 class Agent(IAgent):
     def __init__(self,playerId:str or None=None, arena:str or None=None, username:str or None=None, password:str or None=None, server:str or None=None, port:int=1883, imgOutputPath:str or None="img.jpeg", autoconnect:bool=True, waitArenaConnection:bool=True, verbosity:int=3, robotId:str or None="_", welcomePrint:bool=True, sourcesdir:str or None=None):

@@ -1,0 +1,6 @@
+[submodule "pyrobotx"]
+	path = pyrobotx
+	url = https://github.com/jusdeliens/pyrobotx.git
+[submodule "pyanalytx"]
+	path = pyanalytx
+	url = https://github.com/jusdeliens/pyanalytx.git

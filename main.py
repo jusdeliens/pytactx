@@ -1,4 +1,4 @@
-import j2l.pytactx.agent as pytactx
+import agent as pytactx
 import env
 import event
 import time
