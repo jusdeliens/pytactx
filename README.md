@@ -29,7 +29,6 @@ BROKERPORT      = ...
 # Verbosity level as int from 0:no log, to 4: full debug logs
 VERBOSITY       = ... 
 ```
-
 5. Then run the main.py with python interpretor (⚠️ at least version 3.9)
 ```
 python main.py
