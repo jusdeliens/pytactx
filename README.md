@@ -38,7 +38,7 @@ python main.py
 
 Fetch all instructions to program your robot 👉 [on our tutorial here](https://tutos.jusdeliens.com/index.php/2020/01/14/pytactx-prise-en-main/)
 
-To see the public arenas in your web browser, go to the 👉 [Online IDEAL Arena Viewer](https://play.jusdeliens.com/)
+To see the public arenas in your web browser, go to the 👉 [Online Ova Arena Viewer](https://play.jusdeliens.com/)
 
 You can also get yourself a real Ova bot to have much more fun and join the next robot challenge with passionate developers all around the world [by clicking here](https://jusdeliens.com/ova).
 
